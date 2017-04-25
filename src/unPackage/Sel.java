@@ -65,7 +65,7 @@ public class Sel {
 	// return this.matriz.invertir().producto(this.vector);
 	// }
 
-	public MatrizMath invertir() {
+	public MatrizMath invertir() throws DistDemException {
 		return this.matriz.invertir();
 	}
 

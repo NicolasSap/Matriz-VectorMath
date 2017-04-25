@@ -3,6 +3,7 @@ package unPackage;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Arrays;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class MatrizMath {
@@ -18,6 +19,7 @@ public class MatrizMath {
 
 	public MatrizMath(String path) throws FileNotFoundException {
 		Scanner sc = new Scanner(new File(path));
+		sc.useLocale(Locale.ENGLISH);
 		matriz = new double[sc.nextInt()][sc.nextInt()];
 		dimFil = matriz.length;
 		dimCol = matriz[0].length;
@@ -204,15 +206,21 @@ public class MatrizMath {
 
 	// PABLJNN AMIGOOO
 
-	public MatrizMath invertir() {
+	public MatrizMath invertir() throws DistDemException {
 		double[][] invertida = new double[matriz.length][matriz.length];
 		MatrizMath mInvertida = new MatrizMath(this.clonar());
+		if(mInvertida.determinante() == 0 || mInvertida.matriz.length != mInvertida.matriz[0].length) {
+			//Asumiendo que anda piola después vemos si le mandamos un throw exception 
+			//Yo creo que el syso es re catinga
+			System.out.println("NO SE PUEDE INVERTIR");
+			return null;
+		}
 		for (int o = 0; o < invertida.length; o++) {
 			invertida[o][o] = 1;
 		}
 		for (int i = 0; i < mInvertida.matriz.length; i++) {
 			if (mInvertida.matriz[i][i] == 0) {
-				moverFila(mInvertida.matriz);
+				moverFila(mInvertida.matriz,i);
 			}
 			dividir(mInvertida.matriz, i, invertida);
 			cerosInferiores(mInvertida.matriz, i, invertida);
@@ -282,8 +290,15 @@ public class MatrizMath {
 		return mat;
 	}
 
-	private void moverFila(double[][] original) {
-		// TODO Auto-generated method stub
-		// REVISAR POR QUE NO SE HACE OTRA REFERENICA
+	public void moverFila(double[][] original,int i) {
+		double [] aux = new double[i];
+		while(i < original[i].length){
+			aux=original[i];
+			original[i]=original[i+1];
+			original[i+1]=aux;
+			if(original[i][i] == 0) break;
+			i++;
+		}
+		
 	}
 }
