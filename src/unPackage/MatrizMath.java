@@ -266,6 +266,17 @@ public class MatrizMath {
 		}
 		
 	}
+	
+	public int length()
+	{
+		return this.matriz.length;
+	}
+	
+	/*Retorna el valor de la posicion i j*/
+	public double getAt(int i, int j)
+	{
+		return this.matriz[i][j];
+	}
 
 	private void moverFila(double[][] original) {
 		// TODO Auto-generated method stub

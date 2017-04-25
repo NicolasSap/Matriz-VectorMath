@@ -26,37 +26,42 @@ public class Main {
 //			
 //			VectorMath v5 = v1.clone();
 //			System.out.println(v5.normaInfinita());
-			MatrizMath m1 = new MatrizMath("matriz.in");
-			m1.mostrarMatriz();
-			MatrizMath m2 = new MatrizMath("matriz1.in");
-			m2.mostrarMatriz();
-			MatrizMath m3 = new MatrizMath("matriz2.in");
-			m3.mostrarMatriz();
+//			MatrizMath m1 = new MatrizMath("matriz.in");
+//			m1.mostrarMatriz();
+//			MatrizMath m2 = new MatrizMath("matriz1.in");
+//			m2.mostrarMatriz();
+//			MatrizMath m3 = new MatrizMath("matriz2.in");
+//			m3.mostrarMatriz();
 //			m3 = m1.sumarMatriz(m2);
 //			m3.mostrarMatriz();
 //			m3 = m1.restarMatriz(m2);
 //			m3.mostrarMatriz();
-			m3 = m1.producto(m2);
-			m3.mostrarMatriz();
+//			m3 = m1.producto(m2);
+//			m3.mostrarMatriz();
+//			
+//			MatrizMath m4 = new MatrizMath("matriz3.in");
+//			VectorMath v6 = new VectorMath("vector4.in");
+//			VectorMath v7 = new VectorMath("vector5.in");
+//			v7 = m4.producto(v6);
+//			System.out.println(v7);
+//			
+//			MatrizMath m5 = new MatrizMath("matriz3.in");
+//			float n = 3.2f;
+//			m5 = m4.producto(n);
+//			m5.mostrarMatriz();
+//			
+//			System.out.println(m5.equals(m5));
+//			System.out.println(m5.equals(m4));
+//			
+//			MatrizMath m6 = new MatrizMath("matriz4.in");
+//			System.out.println(m6.determinante());
 			
-			MatrizMath m4 = new MatrizMath("matriz3.in");
-			VectorMath v6 = new VectorMath("vector4.in");
-			VectorMath v7 = new VectorMath("vector5.in");
-			v7 = m4.producto(v6);
-			System.out.println(v7);
+			Sel sistema1 = new Sel("matriz1.in");
+			System.out.println(sistema1);
+			sistema1.mostrarMatriz();
+			sistema1.mostrarVector();
 			
-			MatrizMath m5 = new MatrizMath("matriz3.in");
-			float n = 3.2f;
-			m5 = m4.producto(n);
-			m5.mostrarMatriz();
-			
-			System.out.println(m5.equals(m5));
-			System.out.println(m5.equals(m4));
-			
-			MatrizMath m6 = new MatrizMath("matriz4.in");
-			System.out.println(m6.determinante());
-			
-		} catch (FileNotFoundException e) {
+			} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 //		} catch (DistDemException e) {

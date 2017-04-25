@@ -15,6 +15,7 @@ public class VectorMath {
 		this.coord = coord;
 	}
 	
+	
 	public VectorMath(String path) throws FileNotFoundException{
 		Scanner sc = new Scanner(new File(path));
 		int i=0;
@@ -30,7 +31,7 @@ public class VectorMath {
 	
 	@Override
 	public String toString() {
-		return "Vector = " + Arrays.toString(coord);
+		return "Vector :\n" + Arrays.toString(coord);
 	}
 
 	public VectorMath sumaVectores(VectorMath v1) throws DistDemException{
@@ -103,6 +104,14 @@ public class VectorMath {
 		return Math.sqrt(a);
 	}
 	
+	public double normaInfinita(){
+		double max=Math.abs(coord[0]);
+		for(int i=1;i<dim;i++)
+			if (max < Math.abs(coord[i]))
+				max = Math.abs(coord[i]);
+		return max;
+	}
+	
 	public VectorMath producto(double r) {
 		double [] aux = new double[dim];
 		for(int i=0;i<dim;i++){
@@ -110,6 +119,17 @@ public class VectorMath {
 		}
 		return new VectorMath(aux);
 
+	}
+	
+	public int length()
+	{
+		return this.coord.length;
+	}
+	
+	/*Retorna el valor de la posicion i*/
+	public double getAt(int i)
+	{
+		return this.coord[i];
 	}
 
 	public double[] getCoord() {
@@ -120,13 +140,6 @@ public class VectorMath {
 		this.coord = coord;
 	}
 	
-	public double normaInfinita(){
-		double max=Math.abs(coord[0]);
-		for(int i=1;i<dim;i++)
-			if (max < Math.abs(coord[i]))
-				max = Math.abs(coord[i]);
-		return max;
-	}
 
 	public int getDim() {
 		return dim;
@@ -135,5 +148,6 @@ public class VectorMath {
 	public void setDim(int dim) {
 		this.dim = dim;
 	}
+	
 	
 }
