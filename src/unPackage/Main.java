@@ -58,8 +58,10 @@ public class Main {
 			
 			Sel sistema1 = new Sel("matriz1.in");
 			System.out.println(sistema1);
-			sistema1.mostrarMatriz();
-			sistema1.mostrarVector();
+			MatrizMath mat1 =  sistema1.invertir();
+			mat1.mostrarMatriz();
+			System.out.println(sistema1);
+			
 			
 			} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
